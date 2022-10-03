@@ -1,37 +1,245 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>由数据范围反推算法复杂度以及算法内容 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="一般ACM或者笔试题的时间限制是1秒或2秒。在这种情况下，C++代码中的操作次数控制在 $10^7∼10^8$ 为最佳。 下面给出在不同数据范围下，代码的时间复杂度和算法该如何选择：  n≤30, 指数级别, dfs+剪枝，状态压缩dp n≤ 100 &#x3D;&gt; O($n^3$)，floyd，dp，高斯消元 n≤ 1000 &#x3D;&gt; O($n^2$)，O($n^2log_n$">
+<meta property="og:type" content="article">
+<meta property="og:title" content="由数据范围反推算法复杂度以及算法内容">
+<meta property="og:url" content="http://example.com/2021/12/24/%E7%94%B1%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4%E5%8F%8D%E6%8E%A8%E7%AE%97%E6%B3%95%E5%A4%8D%E6%9D%82%E5%BA%A6%E4%BB%A5%E5%8F%8A%E7%AE%97%E6%B3%95%E5%86%85%E5%AE%B9/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一般ACM或者笔试题的时间限制是1秒或2秒。在这种情况下，C++代码中的操作次数控制在 $10^7∼10^8$ 为最佳。 下面给出在不同数据范围下，代码的时间复杂度和算法该如何选择：  n≤30, 指数级别, dfs+剪枝，状态压缩dp n≤ 100 &#x3D;&gt; O($n^3$)，floyd，dp，高斯消元 n≤ 1000 &#x3D;&gt; O($n^2$)，O($n^2log_n$">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-12-24T14:56:52.000Z">
+<meta property="article:modified_time" content="2021-12-25T09:36:35.858Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-由数据范围反推算法复杂度以及算法内容" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/12/24/%E7%94%B1%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4%E5%8F%8D%E6%8E%A8%E7%AE%97%E6%B3%95%E5%A4%8D%E6%9D%82%E5%BA%A6%E4%BB%A5%E5%8F%8A%E7%AE%97%E6%B3%95%E5%86%85%E5%AE%B9/" class="article-date">
+  <time class="dt-published" datetime="2021-12-24T14:56:52.000Z" itemprop="datePublished">2021-12-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      由数据范围反推算法复杂度以及算法内容
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>一般ACM或者笔试题的时间限制是1秒或2秒。<br>在这种情况下，C++代码中的操作次数控制在 $10^7∼10^8$ 为最佳。</p>
+<p>下面给出在不同数据范围下，代码的时间复杂度和算法该如何选择：</p>
+<ul>
+<li>n≤30, 指数级别, dfs+剪枝，状态压缩dp</li>
+<li>n≤ 100 &#x3D;&gt; O($n^3$)，floyd，dp，高斯消元</li>
+<li>n≤ 1000 &#x3D;&gt; O($n^2$)，O($n^2log_n$)，dp，二分，朴素版 ijkstra、朴素版Prim、Bellman-Ford</li>
+<li>n≤ 10000 &#x3D;&gt; O(n∗$\sqrt{n}$ )，块状链表、分块、莫队</li>
+<li>n≤ 100000 &#x3D;&gt; O(n$log_n$) &#x3D;&gt; 各种sort，线段树、树状数组、set&#x2F;map、heap、拓扑排序、dijkstra+heap、prim  +heap、Kruskal、spfa、求凸包、求半平面交、二分、CDQ分治、整体二分、后缀数组、树链剖分、动态树</li>
+<li>n≤ 1000000 &#x3D;&gt; O(n), 以及常数较小的 O(n$log_n$)O(n$log_n$) 算法 &#x3D;&gt; 单调队列、 hash、双指针扫描、并查集，kmp、AC自动机，常数比较小的 O(n$log_n$)O(n$log_n$) 的做法：sort、树状数组、heap、dijkstra、spfa</li>
+<li>n≤ 10000000 &#x3D;&gt; O(n)，双指针扫描、kmp、AC自动机、线性筛素数</li>
+<li>n≤ $10^9$&#x3D;&gt; O($\sqrt{n}$)，判断质数</li>
+<li>n≤ $10^{18}$ &#x3D;&gt; O($log_n$)，最大公约数，快速幂，数位DP</li>
+<li>n≤$10^{1000}$ &#x3D;&gt; O($(log_n)^2$)，高精度加减乘除</li>
+<li>$n≤10^{100000}$&#x3D;&gt; $O(log_k×loglog_k)$，k表示位数O($logk×loglog_k$)，k表示位数，高精度加减、FFT&#x2F;NT</li>
+</ul>
+<p>作者：yxc<br>链接：<a target="_blank" rel="noopener" href="https://www.acwing.com/blog/content/32/">https://www.acwing.com/blog/content/32/</a><br>来源：AcWing<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/12/24/%E7%94%B1%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4%E5%8F%8D%E6%8E%A8%E7%AE%97%E6%B3%95%E5%A4%8D%E6%9D%82%E5%BA%A6%E4%BB%A5%E5%8F%8A%E7%AE%97%E6%B3%95%E5%86%85%E5%AE%B9/" data-id="cl8sqrgev000610v43gau40mm" data-title="由数据范围反推算法复杂度以及算法内容" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/10/03/C++%20%E5%AE%B9%E5%99%A8/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/12/17/Hexo%E6%A1%86%E6%9E%B6%E6%9E%84%E5%BB%BA%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%89%98%E7%AE%A1%E5%88%B0Github/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hexo框架构建的博客托管到Github（保姆级）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
 
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
+</section>
+        
+          <aside id="sidebar">
+  
+    
 
-{% block page_class %}page-post-detail{% endblock %}
+  
+    
 
-
-{% block content %}
-
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
-
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li></ul>
     </div>
   </div>
 
-{% endblock %}
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/10/03/%E4%BA%8C%E5%88%86%E7%AE%97%E6%B3%95/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/03/%E4%BB%8E%E9%9B%B6%E4%BA%86%E8%A7%A3%E5%93%88%E5%B8%8C%E8%A1%A8%E5%8F%8A%E6%A8%A1%E6%9D%BF/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/03/%E6%95%B0%E8%AE%BA/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/03/%E4%BB%8E%E9%9B%B6%E4%BA%86%E8%A7%A3%E5%A0%86%E5%8F%8A%E7%AE%80%E6%98%93%E6%A8%A1%E6%9D%BF/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/03/%E4%BB%8E%E9%9B%B6%E4%BA%86%E8%A7%A3%E5%B9%B6%E6%9F%A5%E9%9B%86%E5%8F%8A%E7%AE%80%E6%98%93%E6%A8%A1%E6%9D%BF/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

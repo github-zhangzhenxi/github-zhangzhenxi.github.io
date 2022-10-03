@@ -1,37 +1,268 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="C++容器 vector, 变长数组，倍增的思想（每当空间不够时，自动申请一个双倍的空间，并将原数组数据复制到新空间）  size()  返回元素个数    empty()  返回是否为空     clear()  清空  front()  返回vector的第一个数  back()   返回vector的最后一个数  push_back() 在vector 最后插入一个数  pop_back()">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2022/10/03/C++%20%E5%AE%B9%E5%99%A8/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="C++容器 vector, 变长数组，倍增的思想（每当空间不够时，自动申请一个双倍的空间，并将原数组数据复制到新空间）  size()  返回元素个数    empty()  返回是否为空     clear()  清空  front()  返回vector的第一个数  back()   返回vector的最后一个数  push_back() 在vector 最后插入一个数  pop_back()">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-10-03T12:20:57.725Z">
+<meta property="article:modified_time" content="2022-01-06T06:30:03.016Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-C++ 容器" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/10/03/C++%20%E5%AE%B9%E5%99%A8/" class="article-date">
+  <time class="dt-published" datetime="2022-10-03T12:20:57.725Z" itemprop="datePublished">2022-10-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="C-容器"><a href="#C-容器" class="headerlink" title="C++容器"></a>C++容器</h2><ul>
+<li><p><strong>vector, 变长数组，倍增的思想（每当空间不够时，自动申请一个双倍的空间，并将原数组数据复制到新空间</strong>）</p>
+<ul>
+<li>size()  返回元素个数   <br></li>
+<li>empty()  返回是否为空    <br></li>
+<li>clear()  清空 <br></li>
+<li>front()  返回vector的第一个数 <br></li>
+<li>back()   返回vector的最后一个数 <br></li>
+<li>push_back() 在vector 最后插入一个数 <br></li>
+<li>pop_back()  在vector 最后删除一个数 <br></li>
+<li>begin()   vector 第一个数<br>end()      vector 最后一个数的后面<br> 输出vector数组的值: for(vector<int>::iterator i &#x3D; a.begin(); i !&#x3D; a.end(); i++) cout &lt;&lt; *i &lt;&lt;” “;<br></li>
+</ul>
+</li>
+<li><p><strong>pair&lt;int, int&gt;</strong><br>  p &#x3D; make_pair(10,”zzx”) &#x2F; p &#x3D; {20, “abc”} 构造pair函数<br>  first, 第一个元素<br>  second, 第二个元素<br>  支持比较运算，以first为第一关键字，以second为第二关键字（字典序）</p>
+<br>
+</li>
+<li><p><strong>string，字符串</strong><br>  size()&#x2F;length()  返回字符串长度<br>  empty() 字符串是否为空<br>  clear()<br>  substr(起始下标，(子串长度))  返回子串<br>  c_str()  返回字符串所在字符数组的起始地址</p>
+<br>
+</li>
+<li><p><strong>queue,</strong> <strong>队列</strong><br>  size()<br>  empty()<br>  push()  向队尾插入一个元素<br>  front()  返回队头元素<br>  back()  返回队尾元素<br>  pop()  弹出队头元素</p>
+<br>
+</li>
+<li><p><strong>priority_queue, 优先队列，默认是大根堆</strong><br>  size()<br>  empty()<br>  push()  插入一个元素<br>  top()  返回堆顶元素<br>  pop()  弹出堆顶元素<br>  定义成小根堆的方式：priority_queue&lt;int, vector<int>, greater<int>&gt; q;</p>
+<br>
+</li>
+<li><p><strong>stack, 栈</strong><br>  size()<br>  empty()<br>  push()  向栈顶插入一个元素<br>  top()  返回栈顶元素<br>  pop()  弹出栈顶元素</p>
+<br>
+</li>
+<li><p><strong>deque, 双端队列</strong><br>  size()<br>  empty()<br>  clear()<br>  front()&#x2F;back()<br>  push_back()&#x2F;pop_back()<br>  push_front()&#x2F;pop_front()<br>  begin()&#x2F;end()<br>  []</p>
+<br>
+</li>
+<li><p><strong>set, map, multiset, multimap, 基于平衡二叉树（红黑树），动态维护有序序列</strong><br>  size()<br>  empty()<br>  clear()<br>  begin()&#x2F;end()<br>  ++, – 返回前驱和后继，时间复杂度 O(logn)</p>
+<p>  set&#x2F;multiset<br>  insert()  插入一个数<br>  find()  查找一个数<br>  count()  返回某一个数的个数<br>  erase()<br>      (1) 输入是一个数x，删除所有x   O(k + logn)<br>      (2) 输入一个迭代器，删除这个迭代器<br>  lower_bound()&#x2F;upper_bound()<br>      lower_bound(x)  返回大于等于x的最小的数的迭代器<br>      upper_bound(x)  返回大于x的最小的数的迭代器<br>  map&#x2F;multimap<br>  insert()  插入的数是一个pair<br>  erase()  输入的参数是pair或者迭代器<br>  find()<br>  []  注意multimap不支持此操作。 时间复杂度是 O(logn)<br>  lower_bound()&#x2F;upper_bound()</p>
+</li>
+<li><p>unordered_set, unordered_map, unordered_multiset, unordered_multimap, 哈希表<br>  和上面类似，增删改查的时间复杂度是 O(1)<br>  不支持 lower_bound()&#x2F;upper_bound()， 迭代器的++，–</p>
+  <br>
+</li>
+<li><p><strong>bitset, 圧位</strong><br>  bitset&lt;10000&gt; s;<br>  ~, &amp;, |, ^</p>
+<blockquote>
+<blockquote>
+<p>, &lt;&lt;<br>  &#x3D;&#x3D;, !&#x3D;<br>  []</p>
+</blockquote>
+</blockquote>
+<p>  count()  返回有多少个1</p>
+<p>  any()  判断是否至少有一个1<br>  none()  判断是否全为0</p>
+<p>  set()  把所有位置成1<br>  set(k, v)  将第k位变成v<br>  reset()  把所有位变成0<br>  flip()  等价于~<br>  flip(k) 把第k位取反</p>
+</li>
+</ul>
+<p>注：C++为某一程序分配空间所需要的时间与空间大小无关，与申请次数有关。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/10/03/C++%20%E5%AE%B9%E5%99%A8/" data-id="cl8sqrged000010v4945ia5zc" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/10/03/%E4%BB%8E%E9%9B%B6%E4%BA%86%E8%A7%A3%E5%B9%B6%E6%9F%A5%E9%9B%86%E5%8F%8A%E7%AE%80%E6%98%93%E6%A8%A1%E6%9D%BF/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/12/24/%E7%94%B1%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4%E5%8F%8D%E6%8E%A8%E7%AE%97%E6%B3%95%E5%A4%8D%E6%9D%82%E5%BA%A6%E4%BB%A5%E5%8F%8A%E7%AE%97%E6%B3%95%E5%86%85%E5%AE%B9/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">由数据范围反推算法复杂度以及算法内容</div>
+    </a>
+  
+</nav>
+
+  
+</article>
 
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
+</section>
+        
+          <aside id="sidebar">
+  
+    
 
-{% block page_class %}page-post-detail{% endblock %}
+  
+    
 
-
-{% block content %}
-
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
-
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li></ul>
     </div>
   </div>
 
-{% endblock %}
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/10/03/%E4%BA%8C%E5%88%86%E7%AE%97%E6%B3%95/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/03/%E4%BB%8E%E9%9B%B6%E4%BA%86%E8%A7%A3%E5%93%88%E5%B8%8C%E8%A1%A8%E5%8F%8A%E6%A8%A1%E6%9D%BF/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/03/%E6%95%B0%E8%AE%BA/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/03/%E4%BB%8E%E9%9B%B6%E4%BA%86%E8%A7%A3%E5%A0%86%E5%8F%8A%E7%AE%80%E6%98%93%E6%A8%A1%E6%9D%BF/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/03/%E4%BB%8E%E9%9B%B6%E4%BA%86%E8%A7%A3%E5%B9%B6%E6%9F%A5%E9%9B%86%E5%8F%8A%E7%AE%80%E6%98%93%E6%A8%A1%E6%9D%BF/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

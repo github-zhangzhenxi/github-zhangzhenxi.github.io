@@ -1,37 +1,308 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo框架构建的博客托管到Github（保姆级） | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="说一下把将建立博客在把博客部署在Github上的过程、问题和需要注意的方面  先前下载 Node.js Git Hexo（废话，毕竟是用Hexo搭建） 在命令提示符窗格中输入 npm install hexo-cli -g   Github账号  如何验证自己装好了呢？ 在命令提示符窗口中，逐个输入 node -v、 hexo -version、git --version,如果输出的是三组数字，那">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo框架构建的博客托管到Github（保姆级）">
+<meta property="og:url" content="http://example.com/2021/12/17/Hexo%E6%A1%86%E6%9E%B6%E6%9E%84%E5%BB%BA%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%89%98%E7%AE%A1%E5%88%B0Github/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="说一下把将建立博客在把博客部署在Github上的过程、问题和需要注意的方面  先前下载 Node.js Git Hexo（废话，毕竟是用Hexo搭建） 在命令提示符窗格中输入 npm install hexo-cli -g   Github账号  如何验证自己装好了呢？ 在命令提示符窗口中，逐个输入 node -v、 hexo -version、git --version,如果输出的是三组数字，那">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-12-17T09:24:19.000Z">
+<meta property="article:modified_time" content="2021-12-17T13:41:21.926Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Hexo框架构建的博客托管到Github" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/12/17/Hexo%E6%A1%86%E6%9E%B6%E6%9E%84%E5%BB%BA%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%89%98%E7%AE%A1%E5%88%B0Github/" class="article-date">
+  <time class="dt-published" datetime="2021-12-17T09:24:19.000Z" itemprop="datePublished">2021-12-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Hexo框架构建的博客托管到Github（保姆级）
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>说一下把将建立博客在把博客部署在Github上的过程、问题和需要注意的方面</p>
+<hr>
+<h2 id="先前下载"><a href="#先前下载" class="headerlink" title="先前下载"></a>先前下载</h2><ul>
+<li>Node.js</li>
+<li>Git</li>
+<li>Hexo（废话，毕竟是用Hexo搭建）<ul>
+<li>在命令提示符窗格中输入 npm install hexo-cli -g</li>
+</ul>
+</li>
+<li>Github账号</li>
+</ul>
+<p>如何验证自己装好了呢？</p>
+<pre><code>在命令提示符窗口中，逐个输入 node -v、 hexo -version、git --version,如果输出的是三组数字，那就对了
+</code></pre>
+<hr>
+<h2 id="绑定Github仓库"><a href="#绑定Github仓库" class="headerlink" title="绑定Github仓库"></a>绑定Github仓库</h2><ul>
+<li>新建仓库<ul>
+<li>仓库名是:你的名字.github.io</li>
+<li>选中“Add a README file”选项</li>
+</ul>
+</li>
+<li>复制SSH公匙<ul>
+<li>找一个文件夹，右击选择“Git Bash Here”进入Git命令窗口<ul>
+<li>输入 ssh 检查是否安装SSH</li>
+<li>输入 ssh-keygen -t rsa -C “你Github中的邮件地址”</li>
+</ul>
+</li>
+<li>在系统盘中找到用户，在你所用的用户文件夹中找到.ssh文件夹，把“id_rsa.pub”文件中的内容复制。</li>
+</ul>
+</li>
+<li>将SSH公匙添加到Github上<ul>
+<li>在Github的右上角将下拉菜单打开选择“Settings”</li>
+<li>在打开的用户设置中左边导航栏选择“SSH and GPG keys”，再点击“New SSH key”</li>
+<li>title随便起一个名字，key中粘贴从“id_rsa.pub”中复制的内容，点击“Add SSH key” 。</li>
+</ul>
+</li>
+<li>查看是否绑定成功<ul>
+<li>在  Git命令窗口中输入 ssh -T <a href="mailto:&#103;&#105;&#x74;&#64;&#103;&#105;&#116;&#104;&#117;&#x62;&#x2e;&#x63;&#111;&#109;">&#103;&#105;&#x74;&#64;&#103;&#105;&#116;&#104;&#117;&#x62;&#x2e;&#x63;&#111;&#109;</a> </li>
+<li>输入yes</li>
+<li>出现 Hi 你的注册名字 You’ve successfully authenticated</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="本地博客"><a href="#本地博客" class="headerlink" title="本地博客"></a>本地博客</h2><ul>
+<li>选择一个空文件夹作为博客文件存放空间。</li>
+<li>右击选择“Git Bash Here”进入Git命令窗口</li>
+<li>分别输入  hexo init 、hexo g 和 hexo s，这几个命令分别是初始化、生成本地博客、启动本地服务。</li>
+</ul>
+<hr>
+<h2 id="发布到网络"><a href="#发布到网络" class="headerlink" title="发布到网络"></a>发布到网络</h2><ul>
+<li>在你的博客文件空间中找到“_config.yml”文件。</li>
+<li>在最后的“deploy”下写上：<br>  tyep:git<br>  repository:<a target="_blank" rel="noopener" href="https://github.com/%E4%BD%A0%E7%9A%84github%E6%B3%A8%E5%86%8C%E5%90%8D.github.io.git">https://github.com/你的github注册名.github.io.git</a><br>  branch:main</li>
+<li>在你的博客空间中右击选择“Git Bash Here”进入Git命令窗口<ul>
+<li>输入 npm install hexo-deployer-git –save</li>
+<li>输入 hexo g</li>
+<li>输入 hexo d</li>
+<li></li>
+</ul>
+</li>
+<li>当你输入完之后会然弹出窗口让你输入密码的方式，我们选下面的 code方式</li>
+<li>输入自己的用户名和令牌<ul>
+<li>令牌是在用户设置中的Developer settings–》Personal access tokens中新建一个令牌，其中新建时的令牌权限全部选上，在把令牌序列号给输入到弹出的输入框中。</li>
+</ul>
+</li>
+</ul>
+<p>这样每次修改完博客文件后再执行hexo d命令就可以将文件上传到自己的博客网站上。 </p>
+<hr>
+<p>报错  </p>
+<ol>
+<li>fatal: unable to access ‘<a target="_blank" rel="noopener" href="https://github.com/github-zhangzhenxi/github-zhangzhenxi.github.io.git/&#39;">https://github.com/github-zhangzhenxi/github-zhangzhenxi.github.io.git/&#39;</a>: OpenSSL SSL_read: Connection was reset, errno 10054<ol>
+<li>要在cmd中输入ipconfig&#x2F;flushdns</li>
+</ol>
+</li>
+<li>Port 4000 has been used. Try other port instead.<ol>
+<li>启动服务上加上端口号参数</li>
+</ol>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/12/17/Hexo%E6%A1%86%E6%9E%B6%E6%9E%84%E5%BB%BA%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%89%98%E7%AE%A1%E5%88%B0Github/" data-id="cl8sqrgek000110v4fcipcs69" data-title="Hexo框架构建的博客托管到Github（保姆级）" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/12/24/%E7%94%B1%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4%E5%8F%8D%E6%8E%A8%E7%AE%97%E6%B3%95%E5%A4%8D%E6%9D%82%E5%BA%A6%E4%BB%A5%E5%8F%8A%E7%AE%97%E6%B3%95%E5%86%85%E5%AE%B9/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          由数据范围反推算法复杂度以及算法内容
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/12/16/Markdown%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Markdown的基本语法</div>
+    </a>
+  
+</nav>
+
+  
+</article>
 
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
+</section>
+        
+          <aside id="sidebar">
+  
+    
 
-{% block page_class %}page-post-detail{% endblock %}
+  
+    
 
-
-{% block content %}
-
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
-
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li></ul>
     </div>
   </div>
 
-{% endblock %}
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/10/03/%E4%BA%8C%E5%88%86%E7%AE%97%E6%B3%95/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/03/%E4%BB%8E%E9%9B%B6%E4%BA%86%E8%A7%A3%E5%93%88%E5%B8%8C%E8%A1%A8%E5%8F%8A%E6%A8%A1%E6%9D%BF/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/03/%E6%95%B0%E8%AE%BA/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/03/%E4%BB%8E%E9%9B%B6%E4%BA%86%E8%A7%A3%E5%A0%86%E5%8F%8A%E7%AE%80%E6%98%93%E6%A8%A1%E6%9D%BF/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/03/%E4%BB%8E%E9%9B%B6%E4%BA%86%E8%A7%A3%E5%B9%B6%E6%9F%A5%E9%9B%86%E5%8F%8A%E7%AE%80%E6%98%93%E6%A8%A1%E6%9D%BF/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
