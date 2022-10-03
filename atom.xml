@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>展欧的空间</title>
+  
+  
+  <link href="http://github-zhangzhenxi.github.io.git/atom.xml" rel="self"/>
+  
+  <link href="http://github-zhangzhenxi.github.io.git/"/>
+  <updated>2022-01-09T04:05:55.745Z</updated>
+  <id>http://github-zhangzhenxi.github.io.git/</id>
+  
+  <author>
+    <name>展欧</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://github-zhangzhenxi.github.io.git/2022/10/03/%E4%BA%8C%E5%88%86%E7%AE%97%E6%B3%95/"/>
+    <id>http://github-zhangzhenxi.github.io.git/2022/10/03/%E4%BA%8C%E5%88%86%E7%AE%97%E6%B3%95/</id>
+    <published>2022-10-03T12:20:57.756Z</published>
+    <updated>2022-01-09T04:05:55.745Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>二分的思想</strong> </p><ul><li>确定一个区间，使得目标值在区间中。</li><li>找到一个性质，满足一下两点<ul><li>性质具有二段性（在区间上的元素都能判断是否满足一个性质）</li><li>答案是二段性的分界点</li></ul></li><li>查看区间更新方式选择是否+1</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;strong&gt;二分的思想&lt;/strong&gt; &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;确定一个区间，使得目标值在区间中。&lt;/li&gt;
+&lt;li&gt;找到一个性质，满足一下两点&lt;ul&gt;
+&lt;li&gt;性质具有二段性（在区间上的元素都能判断是否满足一个性质）&lt;/li&gt;
+&lt;li&gt;答案是二段性的分界点&lt;/l</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://github-zhangzhenxi.github.io.git/2022/10/03/%E4%BB%8E%E9%9B%B6%E4%BA%86%E8%A7%A3%E5%93%88%E5%B8%8C%E8%A1%A8%E5%8F%8A%E6%A8%A1%E6%9D%BF/"/>
+    <id>http://github-zhangzhenxi.github.io.git/2022/10/03/%E4%BB%8E%E9%9B%B6%E4%BA%86%E8%A7%A3%E5%93%88%E5%B8%8C%E8%A1%A8%E5%8F%8A%E6%A8%A1%E6%9D%BF/</id>
+    <published>2022-10-03T12:20:57.756Z</published>
+    <updated>2022-01-05T05:44:01.264Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="从零了解哈希表"><a href="#从零了解哈希表" class="headerlink" title="从零了解哈希表"></a>从零了解哈希表</h2><ul><li><strong>哈希表的作用</strong><br>  把一个复杂的数据结构映射（一看到映射就想到函数）小的</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;从零了解哈希表&quot;&gt;&lt;a href=&quot;#从零了解哈希表&quot; class=&quot;headerlink&quot; title=&quot;从零了解哈希表&quot;&gt;&lt;/a&gt;从零了解哈希表&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;哈希表的作用&lt;/strong&gt;&lt;br&gt;  把一个复杂的数据结构映射（一看</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://github-zhangzhenxi.github.io.git/2022/10/03/%E6%95%B0%E8%AE%BA/"/>
+    <id>http://github-zhangzhenxi.github.io.git/2022/10/03/%E6%95%B0%E8%AE%BA/</id>
+    <published>2022-10-03T12:20:57.756Z</published>
+    <updated>2022-01-09T05:01:52.611Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="数论"><a href="#数论" class="headerlink" title="数论"></a>数论</h1><h2 id="1-质数（素数）"><a href="#1-质数（素数）" class="headerlink" title="1. 质数（素数）"></a>1. 质数（素数）</h2><br>  <p><strong>1.1 质数的判断</strong></p><p>在大于1的整数中，如果只包含1和本身这连个约数，就被称为质数（素数）</p><ul><li>质数的判定：<ul><li>试除法 O(n)</li><li>经过优化的试除法 O(qrst(n))<ul><li>质数的一个特性，约数总是成对出现，所以只需要小的约数就好，所以在循环中只需要循环到n&#x2F;i。 $d|n$ ——》$\frac{n}{d}|n$</li></ul></li></ul></li></ul><p> <strong>1.2筛法</strong></p><p> 将所有的数放在一起，把所有数的倍数删掉</p><p> - </p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;数论&quot;&gt;&lt;a href=&quot;#数论&quot; class=&quot;headerlink&quot; title=&quot;数论&quot;&gt;&lt;/a&gt;数论&lt;/h1&gt;&lt;h2 id=&quot;1-质数（素数）&quot;&gt;&lt;a href=&quot;#1-质数（素数）&quot; class=&quot;headerlink&quot; title=&quot;1. 质数（素数）</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://github-zhangzhenxi.github.io.git/2022/10/03/%E4%BB%8E%E9%9B%B6%E4%BA%86%E8%A7%A3%E5%A0%86%E5%8F%8A%E7%AE%80%E6%98%93%E6%A8%A1%E6%9D%BF/"/>
+    <id>http://github-zhangzhenxi.github.io.git/2022/10/03/%E4%BB%8E%E9%9B%B6%E4%BA%86%E8%A7%A3%E5%A0%86%E5%8F%8A%E7%AE%80%E6%98%93%E6%A8%A1%E6%9D%BF/</id>
+    <published>2022-10-03T12:20:57.740Z</published>
+    <updated>2022-01-04T08:37:21.938Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="从零了解堆"><a href="#从零了解堆" class="headerlink" title="从零了解堆"></a>从零了解堆</h2><ul><li><strong>什么是堆</strong><br>  一个完全二叉树</li><li><strong>堆的性质</strong><br>  每个节点都小于其左右子节点</li><li><strong>堆的存储</strong><br>  根节点为1，并每一个节点其左儿子为2x（所以下标不能从0开始）、右儿子为2x + 1.</li><li><strong>堆的基本操作</strong><ol><li>down(x) ：如果把一个数变大，则这个数下沉</li><li>up(x)：把一个数变小，这个数上升</li></ol></li></ul><h2 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">// h[N]存储堆中的值, h[1]是堆顶，x的左儿子是2x, 右儿子是2x + 1</span><br><span class="line">// ph[k]存储第k个插入的点在堆中的位置</span><br><span class="line">// hp[k]存储堆中下标是k的点是第几个插入的</span><br><span class="line">int h[N], ph[N], hp[N], size;</span><br><span class="line"></span><br><span class="line">// 交换两个点，及其映射关系</span><br><span class="line">void heap_swap(int a, int b)</span><br><span class="line">&#123;</span><br><span class="line">    swap(ph[hp[a]],ph[hp[b]]);</span><br><span class="line">    swap(hp[a], hp[b]);</span><br><span class="line">    swap(h[a], h[b]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void down(int u)</span><br><span class="line">&#123;</span><br><span class="line">    int t = u;</span><br><span class="line">    if (u * 2 &lt;= size &amp;&amp; h[u * 2] &lt; h[t]) t = u * 2;</span><br><span class="line">    if (u * 2 + 1 &lt;= size &amp;&amp; h[u * 2 + 1] &lt; h[t]) t = u * 2 + 1;</span><br><span class="line">    if (u != t)</span><br><span class="line">    &#123;</span><br><span class="line">        heap_swap(u, t);</span><br><span class="line">        down(t);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void up(int u)</span><br><span class="line">&#123;</span><br><span class="line">    while (u / 2 &amp;&amp; h[u] &lt; h[u / 2])</span><br><span class="line">    &#123;</span><br><span class="line">        heap_swap(u, u / 2);</span><br><span class="line">        u &gt;&gt;= 1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// O(n)建堆</span><br><span class="line">for (int i = n / 2; i; i -- ) down(i);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">链接：https://www.acwing.com/blog/content/404/</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;从零了解堆&quot;&gt;&lt;a href=&quot;#从零了解堆&quot; class=&quot;headerlink&quot; title=&quot;从零了解堆&quot;&gt;&lt;/a&gt;从零了解堆&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;什么是堆&lt;/strong&gt;&lt;br&gt;  一个完全二叉树&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://github-zhangzhenxi.github.io.git/2022/10/03/%E4%BB%8E%E9%9B%B6%E4%BA%86%E8%A7%A3%E5%B9%B6%E6%9F%A5%E9%9B%86%E5%8F%8A%E7%AE%80%E6%98%93%E6%A8%A1%E6%9D%BF/"/>
+    <id>http://github-zhangzhenxi.github.io.git/2022/10/03/%E4%BB%8E%E9%9B%B6%E4%BA%86%E8%A7%A3%E5%B9%B6%E6%9F%A5%E9%9B%86%E5%8F%8A%E7%AE%80%E6%98%93%E6%A8%A1%E6%9D%BF/</id>
+    <published>2022-10-03T12:20:57.740Z</published>
+    <updated>2022-01-04T07:15:03.410Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="从零了解并查集"><a href="#从零了解并查集" class="headerlink" title="从零了解并查集"></a>从零了解并查集</h2><ul><li><p><strong>并查集是什么</strong><br>  并查集，是一种判断“远房亲戚”的算法</p>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">话说江湖上散落着各式各样的大侠，有上千个之多。他们没有什么正当职业，整天背着剑在外面走来走去，碰到和自己不是一路人的，就免不了要打一架。但大侠们有一个优点就是讲义气，绝对不打自己的朋友。而且他们信奉“朋友的朋友就是我的朋友”，只要是能通过朋友关系串联起来的，不管拐了多少个弯，都认为是自己人。这样一来，江湖上就形成了一个一个的群落，通过两两之间的朋友关系串联起来。而不在同一个群落的人，无论如何都无法通过朋友关系连起来，于是就可以放心往死了打。但是两个原本互不相识的人，如何判断是否属于一个朋友圈呢？</span><br></pre></td></tr></table></figure></li><li><p><strong>并查集的作用</strong><br>  “并”：把两个处在同一个连通分量的结点给并到一起.<br>  “查”：查找一个结点的根节点（询问两个元素是否在同一个集合里）<br>  “并”的时候需要用到“查”</p>  <br></li><li><p><strong>并查集的基本原理</strong><br>每一个集合用一个树的形式来维护所有的集合，根节点的编号是当前集合的编号，每一个节点都存储其父节点是谁（p[x]表示x的父节点，树根的父节点是它自身）</p><h2 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h2></li></ul><p> (1)朴素并查集：<br> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">int p[N]; //存储每个点的祖宗节点</span><br><span class="line"></span><br><span class="line">// 返回x的祖宗节点并路径压缩</span><br><span class="line">int find(int x)</span><br><span class="line">&#123;</span><br><span class="line">    if (p[x] != x) p[x] = find(p[x]);</span><br><span class="line">    return p[x];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 初始化，假定节点编号是1~n</span><br><span class="line">for (int i = 1; i &lt;= n; i ++ ) p[i] = i;</span><br><span class="line"></span><br><span class="line">// 合并a和b所在的两个集合：</span><br><span class="line">p[find(a)] = find(b);</span><br></pre></td></tr></table></figure></p><p>(2)维护size的并查集：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">int p[N], size[N];</span><br><span class="line">//p[]存储每个点的祖宗节点, size[]只有祖宗节点的有意义，表示祖宗节点所在集合中的点的数量</span><br><span class="line"></span><br><span class="line">// 返回x的祖宗节点</span><br><span class="line">int find(int x)</span><br><span class="line">&#123;</span><br><span class="line">    if (p[x] != x) p[x] = find(p[x]);</span><br><span class="line">    return p[x];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 初始化，假定节点编号是1~n</span><br><span class="line">for (int i = 1; i &lt;= n; i ++ )</span><br><span class="line">&#123;</span><br><span class="line">    p[i] = i;</span><br><span class="line">    size[i] = 1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 合并a和b所在的两个集合：</span><br><span class="line">size[find(b)] += size[find(a)];</span><br><span class="line">p[find(a)] = find(b);</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>(3)维护到祖宗节点距离的并查集：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">    int p[N], d[N];</span><br><span class="line">    //p[]存储每个点的祖宗节点, d[x]存储x到p[x]的距离</span><br><span class="line"></span><br><span class="line">    // 返回x的祖宗节点</span><br><span class="line">    int find(int x)</span><br><span class="line">    &#123;</span><br><span class="line">        if (p[x] != x)</span><br><span class="line">        &#123;</span><br><span class="line">            int u = find(p[x]);</span><br><span class="line">            d[x] += d[p[x]];</span><br><span class="line">            p[x] = u;</span><br><span class="line">        &#125;</span><br><span class="line">        return p[x];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 初始化，假定节点编号是1~n</span><br><span class="line">    for (int i = 1; i &lt;= n; i ++ )</span><br><span class="line">    &#123;</span><br><span class="line">        p[i] = i;</span><br><span class="line">        d[i] = 0;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 合并a和b所在的两个集合：</span><br><span class="line">    p[find(a)] = find(b);</span><br><span class="line">    d[find(a)] = distance; // 根据具体问题，初始化find(a)的偏移量</span><br><span class="line"></span><br><span class="line">作者：yxc</span><br><span class="line">链接：https://www.acwing.com/blog/content/404/</span><br><span class="line">来源：AcWing</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;从零了解并查集&quot;&gt;&lt;a href=&quot;#从零了解并查集&quot; class=&quot;headerlink&quot; title=&quot;从零了解并查集&quot;&gt;&lt;/a&gt;从零了解并查集&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;并查集是什么&lt;/strong&gt;&lt;br&gt;  并查集，是一种判断“远房</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://github-zhangzhenxi.github.io.git/2022/10/03/C++%20%E5%AE%B9%E5%99%A8/"/>
+    <id>http://github-zhangzhenxi.github.io.git/2022/10/03/C++%20%E5%AE%B9%E5%99%A8/</id>
+    <published>2022-10-03T12:20:57.725Z</published>
+    <updated>2022-01-06T06:30:03.016Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="C-容器"><a href="#C-容器" class="headerlink" title="C++容器"></a>C++容器</h2><ul><li><p><strong>vector, 变长数组，倍增的思想（每当空间不够时，自动申请一个双倍的空间，并将原数组数据复制到新空间</strong>）</p><ul><li>size()  返回元素个数   <br></li><li>empty()  返回是否为空    <br></li><li>clear()  清空 <br></li><li>front()  返回vector的第一个数 <br></li><li>back()   返回vector的最后一个数 <br></li><li>push_back() 在vector 最后插入一个数 <br></li><li>pop_back()  在vector 最后删除一个数 <br></li><li>begin()   vector 第一个数<br>end()      vector 最后一个数的后面<br> 输出vector数组的值: for(vector<int>::iterator i &#x3D; a.begin(); i !&#x3D; a.end(); i++) cout &lt;&lt; *i &lt;&lt;” “;<br></li></ul></li><li><p><strong>pair&lt;int, int&gt;</strong><br>  p &#x3D; make_pair(10,”zzx”) &#x2F; p &#x3D; {20, “abc”} 构造pair函数<br>  first, 第一个元素<br>  second, 第二个元素<br>  支持比较运算，以first为第一关键字，以second为第二关键字（字典序）</p><br></li><li><p><strong>string，字符串</strong><br>  size()&#x2F;length()  返回字符串长度<br>  empty() 字符串是否为空<br>  clear()<br>  substr(起始下标，(子串长度))  返回子串<br>  c_str()  返回字符串所在字符数组的起始地址</p><br></li><li><p><strong>queue,</strong> <strong>队列</strong><br>  size()<br>  empty()<br>  push()  向队尾插入一个元素<br>  front()  返回队头元素<br>  back()  返回队尾元素<br>  pop()  弹出队头元素</p><br></li><li><p><strong>priority_queue, 优先队列，默认是大根堆</strong><br>  size()<br>  empty()<br>  push()  插入一个元素<br>  top()  返回堆顶元素<br>  pop()  弹出堆顶元素<br>  定义成小根堆的方式：priority_queue&lt;int, vector<int>, greater<int>&gt; q;</p><br></li><li><p><strong>stack, 栈</strong><br>  size()<br>  empty()<br>  push()  向栈顶插入一个元素<br>  top()  返回栈顶元素<br>  pop()  弹出栈顶元素</p><br></li><li><p><strong>deque, 双端队列</strong><br>  size()<br>  empty()<br>  clear()<br>  front()&#x2F;back()<br>  push_back()&#x2F;pop_back()<br>  push_front()&#x2F;pop_front()<br>  begin()&#x2F;end()<br>  []</p><br></li><li><p><strong>set, map, multiset, multimap, 基于平衡二叉树（红黑树），动态维护有序序列</strong><br>  size()<br>  empty()<br>  clear()<br>  begin()&#x2F;end()<br>  ++, – 返回前驱和后继，时间复杂度 O(logn)</p><p>  set&#x2F;multiset<br>  insert()  插入一个数<br>  find()  查找一个数<br>  count()  返回某一个数的个数<br>  erase()<br>      (1) 输入是一个数x，删除所有x   O(k + logn)<br>      (2) 输入一个迭代器，删除这个迭代器<br>  lower_bound()&#x2F;upper_bound()<br>      lower_bound(x)  返回大于等于x的最小的数的迭代器<br>      upper_bound(x)  返回大于x的最小的数的迭代器<br>  map&#x2F;multimap<br>  insert()  插入的数是一个pair<br>  erase()  输入的参数是pair或者迭代器<br>  find()<br>  []  注意multimap不支持此操作。 时间复杂度是 O(logn)<br>  lower_bound()&#x2F;upper_bound()</p></li><li><p>unordered_set, unordered_map, unordered_multiset, unordered_multimap, 哈希表<br>  和上面类似，增删改查的时间复杂度是 O(1)<br>  不支持 lower_bound()&#x2F;upper_bound()， 迭代器的++，–</p>  <br></li><li><p><strong>bitset, 圧位</strong><br>  bitset&lt;10000&gt; s;<br>  ~, &amp;, |, ^</p><blockquote><blockquote><p>, &lt;&lt;<br>  &#x3D;&#x3D;, !&#x3D;<br>  []</p></blockquote></blockquote><p>  count()  返回有多少个1</p><p>  any()  判断是否至少有一个1<br>  none()  判断是否全为0</p><p>  set()  把所有位置成1<br>  set(k, v)  将第k位变成v<br>  reset()  把所有位变成0<br>  flip()  等价于~<br>  flip(k) 把第k位取反</p></li></ul><p>注：C++为某一程序分配空间所需要的时间与空间大小无关，与申请次数有关。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;C-容器&quot;&gt;&lt;a href=&quot;#C-容器&quot; class=&quot;headerlink&quot; title=&quot;C++容器&quot;&gt;&lt;/a&gt;C++容器&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;vector, 变长数组，倍增的思想（每当空间不够时，自动申请一个双倍的空间，并将原数</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>由数据范围反推算法复杂度以及算法内容</title>
+    <link href="http://github-zhangzhenxi.github.io.git/2021/12/24/%E7%94%B1%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4%E5%8F%8D%E6%8E%A8%E7%AE%97%E6%B3%95%E5%A4%8D%E6%9D%82%E5%BA%A6%E4%BB%A5%E5%8F%8A%E7%AE%97%E6%B3%95%E5%86%85%E5%AE%B9/"/>
+    <id>http://github-zhangzhenxi.github.io.git/2021/12/24/%E7%94%B1%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4%E5%8F%8D%E6%8E%A8%E7%AE%97%E6%B3%95%E5%A4%8D%E6%9D%82%E5%BA%A6%E4%BB%A5%E5%8F%8A%E7%AE%97%E6%B3%95%E5%86%85%E5%AE%B9/</id>
+    <published>2021-12-24T14:56:52.000Z</published>
+    <updated>2021-12-25T09:36:35.858Z</updated>
+    
+    <content type="html"><![CDATA[<p>一般ACM或者笔试题的时间限制是1秒或2秒。<br>在这种情况下，C++代码中的操作次数控制在 $10^7∼10^8$ 为最佳。</p><p>下面给出在不同数据范围下，代码的时间复杂度和算法该如何选择：</p><ul><li>n≤30, 指数级别, dfs+剪枝，状态压缩dp</li><li>n≤ 100 &#x3D;&gt; O($n^3$)，floyd，dp，高斯消元</li><li>n≤ 1000 &#x3D;&gt; O($n^2$)，O($n^2log_n$)，dp，二分，朴素版 ijkstra、朴素版Prim、Bellman-Ford</li><li>n≤ 10000 &#x3D;&gt; O(n∗$\sqrt{n}$ )，块状链表、分块、莫队</li><li>n≤ 100000 &#x3D;&gt; O(n$log_n$) &#x3D;&gt; 各种sort，线段树、树状数组、set&#x2F;map、heap、拓扑排序、dijkstra+heap、prim  +heap、Kruskal、spfa、求凸包、求半平面交、二分、CDQ分治、整体二分、后缀数组、树链剖分、动态树</li><li>n≤ 1000000 &#x3D;&gt; O(n), 以及常数较小的 O(n$log_n$)O(n$log_n$) 算法 &#x3D;&gt; 单调队列、 hash、双指针扫描、并查集，kmp、AC自动机，常数比较小的 O(n$log_n$)O(n$log_n$) 的做法：sort、树状数组、heap、dijkstra、spfa</li><li>n≤ 10000000 &#x3D;&gt; O(n)，双指针扫描、kmp、AC自动机、线性筛素数</li><li>n≤ $10^9$&#x3D;&gt; O($\sqrt{n}$)，判断质数</li><li>n≤ $10^{18}$ &#x3D;&gt; O($log_n$)，最大公约数，快速幂，数位DP</li><li>n≤$10^{1000}$ &#x3D;&gt; O($(log_n)^2$)，高精度加减乘除</li><li>$n≤10^{100000}$&#x3D;&gt; $O(log_k×loglog_k)$，k表示位数O($logk×loglog_k$)，k表示位数，高精度加减、FFT&#x2F;NT</li></ul><p>作者：yxc<br>链接：<a href="https://www.acwing.com/blog/content/32/">https://www.acwing.com/blog/content/32/</a><br>来源：AcWing<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;一般ACM或者笔试题的时间限制是1秒或2秒。&lt;br&gt;在这种情况下，C++代码中的操作次数控制在 $10^7∼10^8$ 为最佳。&lt;/p&gt;
+&lt;p&gt;下面给出在不同数据范围下，代码的时间复杂度和算法该如何选择：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;n≤30, 指数级别, dfs+剪枝，状态</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo框架构建的博客托管到Github（保姆级）</title>
+    <link href="http://github-zhangzhenxi.github.io.git/2021/12/17/Hexo%E6%A1%86%E6%9E%B6%E6%9E%84%E5%BB%BA%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%89%98%E7%AE%A1%E5%88%B0Github/"/>
+    <id>http://github-zhangzhenxi.github.io.git/2021/12/17/Hexo%E6%A1%86%E6%9E%B6%E6%9E%84%E5%BB%BA%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%89%98%E7%AE%A1%E5%88%B0Github/</id>
+    <published>2021-12-17T09:24:19.000Z</published>
+    <updated>2021-12-17T13:41:21.926Z</updated>
+    
+    <content type="html"><![CDATA[<p>说一下把将建立博客在把博客部署在Github上的过程、问题和需要注意的方面</p><hr><h2 id="先前下载"><a href="#先前下载" class="headerlink" title="先前下载"></a>先前下载</h2><ul><li>Node.js</li><li>Git</li><li>Hexo（废话，毕竟是用Hexo搭建）<ul><li>在命令提示符窗格中输入 npm install hexo-cli -g</li></ul></li><li>Github账号</li></ul><p>如何验证自己装好了呢？</p><pre><code>在命令提示符窗口中，逐个输入 node -v、 hexo -version、git --version,如果输出的是三组数字，那就对了</code></pre><hr><h2 id="绑定Github仓库"><a href="#绑定Github仓库" class="headerlink" title="绑定Github仓库"></a>绑定Github仓库</h2><ul><li>新建仓库<ul><li>仓库名是:你的名字.github.io</li><li>选中“Add a README file”选项</li></ul></li><li>复制SSH公匙<ul><li>找一个文件夹，右击选择“Git Bash Here”进入Git命令窗口<ul><li>输入 ssh 检查是否安装SSH</li><li>输入 ssh-keygen -t rsa -C “你Github中的邮件地址”</li></ul></li><li>在系统盘中找到用户，在你所用的用户文件夹中找到.ssh文件夹，把“id_rsa.pub”文件中的内容复制。</li></ul></li><li>将SSH公匙添加到Github上<ul><li>在Github的右上角将下拉菜单打开选择“Settings”</li><li>在打开的用户设置中左边导航栏选择“SSH and GPG keys”，再点击“New SSH key”</li><li>title随便起一个名字，key中粘贴从“id_rsa.pub”中复制的内容，点击“Add SSH key” 。</li></ul></li><li>查看是否绑定成功<ul><li>在  Git命令窗口中输入 ssh -T <a href="mailto:&#x67;&#105;&#116;&#64;&#103;&#105;&#x74;&#x68;&#x75;&#98;&#46;&#99;&#x6f;&#109;">&#x67;&#105;&#116;&#64;&#103;&#105;&#x74;&#x68;&#x75;&#98;&#46;&#99;&#x6f;&#109;</a> </li><li>输入yes</li><li>出现 Hi 你的注册名字 You’ve successfully authenticated</li></ul></li></ul><hr><h2 id="本地博客"><a href="#本地博客" class="headerlink" title="本地博客"></a>本地博客</h2><ul><li>选择一个空文件夹作为博客文件存放空间。</li><li>右击选择“Git Bash Here”进入Git命令窗口</li><li>分别输入  hexo init 、hexo g 和 hexo s，这几个命令分别是初始化、生成本地博客、启动本地服务。</li></ul><hr><h2 id="发布到网络"><a href="#发布到网络" class="headerlink" title="发布到网络"></a>发布到网络</h2><ul><li>在你的博客文件空间中找到“_config.yml”文件。</li><li>在最后的“deploy”下写上：<br>  tyep:git<br>  repository:<a href="https://github.com/%E4%BD%A0%E7%9A%84github%E6%B3%A8%E5%86%8C%E5%90%8D.github.io.git">https://github.com/你的github注册名.github.io.git</a><br>  branch:main</li><li>在你的博客空间中右击选择“Git Bash Here”进入Git命令窗口<ul><li>输入 npm install hexo-deployer-git –save</li><li>输入 hexo g</li><li>输入 hexo d</li><li></li></ul></li><li>当你输入完之后会然弹出窗口让你输入密码的方式，我们选下面的 code方式</li><li>输入自己的用户名和令牌<ul><li>令牌是在用户设置中的Developer settings–》Personal access tokens中新建一个令牌，其中新建时的令牌权限全部选上，在把令牌序列号给输入到弹出的输入框中。</li></ul></li></ul><p>这样每次修改完博客文件后再执行hexo d命令就可以将文件上传到自己的博客网站上。 </p><hr><p>报错  </p><ol><li>fatal: unable to access ‘<a href="https://github.com/github-zhangzhenxi/github-zhangzhenxi.github.io.git/&#39;">https://github.com/github-zhangzhenxi/github-zhangzhenxi.github.io.git/&#39;</a>: OpenSSL SSL_read: Connection was reset, errno 10054<ol><li>要在cmd中输入ipconfig&#x2F;flushdns</li></ol></li><li>Port 4000 has been used. Try other port instead.<ol><li>启动服务上加上端口号参数</li></ol></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;说一下把将建立博客在把博客部署在Github上的过程、问题和需要注意的方面&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;先前下载&quot;&gt;&lt;a href=&quot;#先前下载&quot; class=&quot;headerlink&quot; title=&quot;先前下载&quot;&gt;&lt;/a&gt;先前下载&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Node.j</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Markdown的基本语法</title>
+    <link href="http://github-zhangzhenxi.github.io.git/2021/12/16/Markdown%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/"/>
+    <id>http://github-zhangzhenxi.github.io.git/2021/12/16/Markdown%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</id>
+    <published>2021-12-16T10:28:53.000Z</published>
+    <updated>2021-12-24T15:35:24.458Z</updated>
+    
+    <content type="html"><![CDATA[<p>Markdown是一种纯文本格式的标记语言，这种标记语言让你只关心你写的语义，而不关心你写的格式。（这个不关心格式是它规定了一级语言的大小、字体、是否粗体等格式）</p><h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">一个# 这是一级标题 （#号的后面要加一个空格）</span><br><span class="line">两个# 这是二级标题（#号的后面要加一个空格）</span><br><span class="line">三个# 这是三级标题（#号的后面要加一个空格）</span><br></pre></td></tr></table></figure><hr><h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1.正文：显示  </span><br><span class="line">2.斜体：*显示*  </span><br><span class="line">3.粗体：**显示**  </span><br><span class="line">4.删除线：~显示~</span><br></pre></td></tr></table></figure><hr><h2 id="序号"><a href="#序号" class="headerlink" title="序号"></a>序号</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1.有序符号：数字+英文点  </span><br><span class="line">2.无序符号：-</span><br><span class="line"></span><br><span class="line">注：序号和内容之间要有一个空格！！</span><br></pre></td></tr></table></figure><hr><h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">![图片alt](图片地址 &#x27;&#x27;图片title&#x27;&#x27;)</span><br><span class="line"></span><br><span class="line">图片alt就是显示在图片下面的文字，相当于对图片内容的解释。</span><br></pre></td></tr></table></figure><hr><h2 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[超链接名](超链接地址)</span><br></pre></td></tr></table></figure><hr><h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">表头|表头|表头</span><br><span class="line">---|:--:|---:</span><br><span class="line">内容|内容|内容</span><br><span class="line">内容|内容|内容</span><br><span class="line"></span><br><span class="line">第二行是为了区别表头和内容。</span><br><span class="line">文字默认居左</span><br><span class="line">-两边加：表示文字居中</span><br><span class="line">-右边加：表示文字居右</span><br></pre></td></tr></table></figure><hr><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">单行代码：代码行左右各一个`</span><br><span class="line">多行代码：代码段两端各有三个`</span><br></pre></td></tr></table></figure><hr><h2 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">公式(换行)</span><br><span class="line">$$</span><br><span class="line"></span><br><span class="line">$公式(不换行)$  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">公式用两个$$(换行)包起来，，具体的数学符号对应的代码还是找专门的文档吧，毕竟太多了......</span><br><span class="line"></span><br><span class="line">- 角标</span><br><span class="line">    上标使用^表示，上标长度大于一时，使用&#123;&#125;包围：</span><br><span class="line">    a^2</span><br><span class="line">    a^&#123;1+1&#125;</span><br><span class="line">    下标使用_表示，下标长度大于一时，使用&#123;&#125;包围：</span><br><span class="line">    a_2</span><br><span class="line">    a_&#123;1+1&#125;</span><br><span class="line"></span><br><span class="line">- 根式</span><br><span class="line">    使用\sqrt[指数]&#123;表达式&#125;表示：</span><br><span class="line">    \sqrt[2]&#123;a+b&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><hr><h2 id="分隔符"><a href="#分隔符" class="headerlink" title="分隔符"></a>分隔符</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">---  </span><br><span class="line">***</span><br></pre></td></tr></table></figure><hr>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Markdown是一种纯文本格式的标记语言，这种标记语言让你只关心你写的语义，而不关心你写的格式。（这个不关心格式是它规定了一级语言的大小、字体、是否粗体等格式）&lt;/p&gt;
+&lt;h2 id=&quot;标题&quot;&gt;&lt;a href=&quot;#标题&quot; class=&quot;headerlink&quot; title=</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>
