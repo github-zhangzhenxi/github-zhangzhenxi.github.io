@@ -1,0 +1,230 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>动态规划之思考 | 展欧的空间</title><meta name="keywords" content="算法"><meta name="author" content="展欧"><meta name="copyright" content="展欧"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="闫氏思考法：从集合的角度考虑动态规划问题  常见划分依据：最后  最后一步是从上边来的 $f(i-1,j)+w(i,j)→f(i,j)$ 最后一步是从左边来的$f(i,j-1)+w(i,j)→f(i,j)$  集合划分原则  不重复（仅约束属性是数量的情况，$\max$和$\min$允许划分的集合之间有重复，例如最长公共子序列） 不遗漏（所有属性都约束）  算法中的坐标系 算法中的坐标系并不是数学">
+<meta property="og:type" content="article">
+<meta property="og:title" content="动态规划之思考">
+<meta property="og:url" content="http://github-zhangzhenxi.github.io.git/2022/10/03/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%EF%BC%88%E6%95%B0%E5%AD%97%E4%B8%89%E8%A7%92%E5%BD%A2%E6%A8%A1%E5%9E%8B%EF%BC%89/index.html">
+<meta property="og:site_name" content="展欧的空间">
+<meta property="og:description" content="闫氏思考法：从集合的角度考虑动态规划问题  常见划分依据：最后  最后一步是从上边来的 $f(i-1,j)+w(i,j)→f(i,j)$ 最后一步是从左边来的$f(i,j-1)+w(i,j)→f(i,j)$  集合划分原则  不重复（仅约束属性是数量的情况，$\max$和$\min$允许划分的集合之间有重复，例如最长公共子序列） 不遗漏（所有属性都约束）  算法中的坐标系 算法中的坐标系并不是数学">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg">
+<meta property="article:published_time" content="2022-10-03T12:40:52.000Z">
+<meta property="article:modified_time" content="2022-10-05T07:49:23.468Z">
+<meta property="article:author" content="展欧">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://github-zhangzhenxi.github.io.git/2022/10/03/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%EF%BC%88%E6%95%B0%E5%AD%97%E4%B8%89%E8%A7%92%E5%BD%A2%E6%A8%A1%E5%9E%8B%EF%BC%89/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '动态规划之思考',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-10-05 15:49:23'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="展欧的空间" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">26</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 链接</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">展欧的空间</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 链接</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">动态规划之思考</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-10-03T12:40:52.000Z" title="发表于 2022-10-03 20:40:52">2022-10-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-10-05T07:49:23.468Z" title="更新于 2022-10-05 15:49:23">2022-10-05</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="动态规划之思考"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><strong>闫氏思考法</strong>：从<strong>集合</strong>的角度考虑动态规划问题</p>
+<p><img src="https://cdn.acwing.com/media/article/image/2020/10/08/45680_2b2ec6f209-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E6%A8%A1%E6%9D%BF.jpg" alt="动态规划模板.jpg"></p>
+<p><strong>常见划分依据：最后</strong></p>
+<ul>
+<li>最后一步是从<strong>上边</strong>来的 $f(i-1,j)+w(i,j)→f(i,j)$</li>
+<li>最后一步是从<strong>左边</strong>来的$f(i,j-1)+w(i,j)→f(i,j)$</li>
+</ul>
+<p><strong>集合划分原则</strong></p>
+<ul>
+<li>不重复（仅约束属性是<strong>数量</strong>的情况，$\max$和$\min$允许划分的集合之间有重复，例如<a target="_blank" rel="noopener" href="https://www.acwing.com/activity/content/code/content/512407/">最长公共子序列</a>）</li>
+<li>不遗漏（所有属性都约束）</li>
+</ul>
+<p><strong>算法中的坐标系</strong></p>
+<p>算法中的坐标系并不是数学中定义的坐标系，而是如下图所示的坐标系</p>
+<p><img src="https://cdn.acwing.com/media/article/image/2020/10/08/45680_336d63e609-%E7%AE%97%E6%B3%95%E5%9D%90%E6%A0%87%E7%B3%BB.jpg" alt="算法坐标系.jpg"></p>
+<p><strong>与暴力搜索的区别</strong></p>
+<p>暴搜每次只能处理一种情况，因此效率低下；而动态规划的一个状态包含了若干种情况，是满足某个条件的情况<strong>集合</strong>，每次状态转移就能涉及若干情况，因此效率更高</p>
+<h2 id="数字三角形模型"><a href="#数字三角形模型" class="headerlink" title="数字三角形模型"></a>数字三角形模型</h2><p><img src="https://cdn.acwing.com/media/article/image/2020/10/08/45680_0f29873e09-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E6%95%B0%E5%AD%97%E4%B8%89%E8%A7%92%E5%BD%A2-%E9%A2%98%E7%9B%AE%E5%85%B3%E7%B3%BB.jpg" alt="动态规划-数字三角形-题目关系.jpg"></p>
+<p><strong>模型回顾</strong></p>
+<p>给定一个如下图所示的数字三角形，从<strong>顶部</strong>出发，在每一结点可以选择移动至其<strong>左下</strong>方的结点或移动至其<strong>右下</strong>方的结点，一直走到<strong>底层</strong>，要求找出一条<strong>路径</strong>，使路径上的数字的<strong>和最大</strong>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">        7</span><br><span class="line">      3   8</span><br><span class="line">    8   1   0</span><br><span class="line">  2   7   4   4</span><br><span class="line">4   5   2   6   5</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.acwing.com/media/article/image/2020/10/08/45680_f026146a09-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E6%95%B0%E5%AD%97%E4%B8%89%E8%A7%92%E5%BD%A2.jpg" alt="动态规划-数字三角形.jpg"></p>
+<p><strong>核心代码</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// 自顶向下（未压缩f)</span><br><span class="line">const int INF = 1e9;</span><br><span class="line"></span><br><span class="line">for (int i = 0; i &lt;= n; i ++ )</span><br><span class="line">    for (int j = 0; j &lt;= i + 1; j ++ )</span><br><span class="line">        f[i][j] = -INF;</span><br><span class="line"></span><br><span class="line">f[1][1] = a[1][1];</span><br><span class="line">    for (int i = 2; i &lt;= n; i ++ )</span><br><span class="line">        for (int j = 1; j &lt;= i; j ++ )</span><br><span class="line">            f[i][j] = max(f[i - 1][j - 1] + a[i][j], f[i - 1][j] + a[i][j]);</span><br><span class="line"></span><br><span class="line">int res = -INF;</span><br><span class="line">for (int j = 1; j &lt;= n; j ++ ) res = max(res, f[n][j]);</span><br></pre></td></tr></table></figure>
+
+<h3 id="摘花生"><a href="#摘花生" class="headerlink" title="摘花生"></a>摘花生</h3><p><strong>题意</strong></p>
+<p>网格各顶点有给定数量的花生，找一条从左上角到右下角的路径，使得路径上的花生数量之和最大。每次只能向右或向下走。</p>
+<p><strong>思路</strong></p>
+<p><img src="https://cdn.acwing.com/media/article/image/2020/10/08/45680_2603986e09-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E6%95%B0%E5%AD%97%E4%B8%89%E8%A7%92%E5%BD%A2-%E6%91%98%E8%8A%B1%E7%94%9F.jpg" alt="动态规划-数字三角形-摘花生.jpg"></p>
+<p><strong>核心代码</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for (int i = 1; i &lt;= n; i ++ )</span><br><span class="line">    for (int j = 1; j &lt;= m; j ++ )</span><br><span class="line">        f[i][j] = max(f[i - 1][j], f[i][j - 1]) + w[i][j];      // max后才加w[i][j]不会影响max的选取</span><br><span class="line"></span><br><span class="line">printf(&quot;%d\n&quot;, f[n][m]);</span><br></pre></td></tr></table></figure>
+
+<p><strong>笔记</strong></p>
+<ul>
+<li>根据最后一步的来源，即<strong>上一步的方向</strong>，可将$f(i,j)$划分成两个<strong>不重复</strong>且<strong>无交集</strong>的子集$f(i-1,j)$和$f(i,j-1)$</li>
+<li>对比数字三角形模型<ul>
+<li>一个是三角形，一个是矩形</li>
+<li>都只有两个方向可以走，且不能回头</li>
+<li>都是从左上角走到右下角</li>
+<li>都按照<strong>上一步的方向</strong>划分集合</li>
+<li>当前步与上一步只相差一个<strong>常数</strong>，满足<strong>线性</strong>关系（线性DP）</li>
+<li>都是求<strong>最大路径</strong>（最小路径也类似）</li>
+</ul>
+</li>
+</ul>
+<h3 id="最低通行费"><a href="#最低通行费" class="headerlink" title="最低通行费"></a>最低通行费</h3><p><strong>题意</strong></p>
+<p>从$n\times n$网格的左上走到右下，最多走$2n-1$次，即最多穿过$2n-1$个格子（包括起点和终点），求一条路径，使得经过的格子数值之和最小</p>
+<p><strong>思路</strong></p>
+<p>当$n&#x3D;4$时，最多只能走$2n-1&#x3D;7$次，下图为一种可行的示意图，实际上当只能向下或向右走时，穿过的格子数恰好是$2n-1$。在只能往上下左右四个方向走的限制下，这是最少穿过的格子总数（可以往曼哈顿距离考虑）。</p>
+<p><img src="https://cdn.acwing.com/media/article/image/2020/10/08/45680_35f5d0b609-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E6%95%B0%E5%AD%97%E4%B8%89%E8%A7%92%E5%BD%A2-%E6%9C%80%E4%BD%8E%E9%80%9A%E8%A1%8C%E8%B4%B9%EF%BC%88%E7%A4%BA%E6%84%8F%E5%9B%BE%EF%BC%89.jpg" alt="动态规划-数字三角形-最低通行费（示意图）.jpg"></p>
+<p>因此“最多走$2n-1$次”$\Rightarrow$只能向右或向下走。故此问题转变成类似<strong>摘花生</strong>的问题，但二者仍有一些差异。</p>
+<p><img src="https://cdn.acwing.com/media/article/image/2020/10/08/45680_49849e0a09-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E6%95%B0%E5%AD%97%E4%B8%89%E8%A7%92%E5%BD%A2-%E6%9C%80%E4%BD%8E%E9%80%9A%E8%A1%8C%E8%B4%B9.jpg" alt="动态规划-数字三角形-最低通行费.jpg"></p>
+<p>二者的主要差异：本题求的是<strong>最小路径</strong>，而摘花生求的是<strong>最大路径</strong>。这个差别在代码上体现为矩阵<code>f</code>边界(<code>i==0</code>和<code>j==0</code>)初值的选取</p>
+<ul>
+<li>摘花生问题中，花生数量是正数，边界默认初值为0时，不影响<code>max</code>的选取；</li>
+<li>而最低通行费问题中，如果边界初值是0，且网格的值是正数，则会影响<code>min</code>的选取，因此边界应当初始化为无穷大，例如<code>0x7f7f7f7f</code>。</li>
+</ul>
+<p>当把矩阵<code>f</code>初值设为无穷大后，需要单独对<code>f[1][1]</code>处理，它的值应当为<code>a[1][1]</code>，可在二重循环内单独用<code>if(i==1 &amp;&amp; j==1)</code>处理，否则<code>f[1][1]</code>会受$\infty$影响变成$\infty + a[1][1]$而出错。</p>
+<p>当然也可以把<code>f[0][1]</code>或<code>f[1][0]</code>置为0，使得<code>f[1][1] = min(f[0][1], f[0][1]) + a[1][1] = 0 + a[1][1] = a[1][1]</code>就行，这样有个好处，循环内部不用特判，代码简洁。</p>
+<p><img src="https://cdn.acwing.com/media/article/image/2020/10/08/45680_5062ba0409-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E6%95%B0%E5%AD%97%E4%B8%89%E8%A7%92%E5%BD%A2-%E6%9C%80%E4%BD%8E%E9%80%9A%E8%A1%8C%E8%B4%B9%EF%BC%88%E7%A4%BA%E6%84%8F%E5%9B%BE3%EF%BC%89.jpg" alt="动态规划-数字三角形-最低通行费（示意图3）.jpg"></p>
+<p><strong>实现代码</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">const int N = 110, INF = 1e9;</span><br><span class="line"></span><br><span class="line">int g[N][N], f[N][N];</span><br><span class="line">int n;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    for(int i = 1; i &lt;= n; i ++)</span><br><span class="line">        for(int j = 1; j &lt;= n; j ++)</span><br><span class="line">            scanf(&quot;%d&quot;, &amp;g[i][j]);</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    for(int i = 2; i &lt;= n; i ++) f[i][0] = f[0][i] = INF;  // 画图会清晰很多</span><br><span class="line">    </span><br><span class="line">    f[1][1] = g[1][1];</span><br><span class="line">    for(int i = 1; i &lt;= n; i ++)</span><br><span class="line">        for(int j = 1; j &lt;= n; j ++)</span><br><span class="line">        &#123;</span><br><span class="line">            f[i][j] = min(f[i - 1][j], f[i][j - 1]) + g[i][j];</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">    cout &lt;&lt; f[n][n] &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>注</strong>：我没有采用y总的代码实现，虽然比较好想，但感觉代码太复杂…</p>
+<h3 id="方格取数"><a href="#方格取数" class="headerlink" title="方格取数"></a>方格取数</h3><p><strong>题意</strong>：在$n\times n$网格选两条从左上角到右下角的路径，使得二者之和最大（路径相交的格子只计一次）</p>
+<p><strong>思路</strong></p>
+<p>可以用两组坐标，即4个参数表示两条路径的状态，由于每条路径是独立的，且只能往下或往右走，故可划分为4类，如下图所示。</p>
+<p><img src="https://cdn.acwing.com/media/article/image/2020/10/08/45680_72caa8c209-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E6%95%B0%E5%AD%97%E4%B8%89%E8%A7%92%E5%BD%A2-%E6%96%B9%E6%A0%BC%E5%8F%96%E6%95%B0.jpg" alt="动态规划-数字三角形-方格取数.jpg"></p>
+<p>当两条路径的横纵坐标之和相等时，才<strong>可能</strong>在当前位置相交，此时满足$i_1+j_1&#x3D;i_2+j_2$。</p>
+<p>若令$i_1+j_1&#x3D;i_2+j_2&#x3D;k$，则只用3个参数$i_1,j_1,k$就能表示$i_1,j_1,i_2,j_2$，其中$j_1&#x3D;k-i_1$，$j_2&#x3D;k-i_2$。$k$既表示从$(1,1)$到$(i_1,j_1)$的横纵坐标之和，又表示从$(1,1)$到$(i_2,j_2)$的横纵坐标之和。当$k$不变时，若$i_1&#x3D;i_2$，则$j_1&#x3D;j_2$，即两条路径相交于$(i_1,j_1)$。</p>
+<p><img src="https://cdn.acwing.com/media/article/image/2020/10/08/45680_7914eb3409-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E6%95%B0%E5%AD%97%E4%B8%89%E8%A7%92%E5%BD%A2-%E6%96%B9%E6%A0%BC%E5%8F%96%E6%95%B02.jpg" alt="动态规划-数字三角形-方格取数2.jpg"></p>
+<p><strong>核心代码</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">int w[N][N];</span><br><span class="line">int f[N * 2][N][N];     // k最大取2N</span><br><span class="line"></span><br><span class="line">// main</span><br><span class="line">for (int k = 2; k &lt;= n + n; k ++ )</span><br><span class="line">    for (int i1 = 1; i1 &lt;= n; i1 ++ )</span><br><span class="line">        for (int i2 = 1; i2 &lt;= n; i2 ++ )</span><br><span class="line">        &#123;</span><br><span class="line">            int j1 = k - i1, j2 = k - i2;</span><br><span class="line">            if (j1 &gt;= 1 &amp;&amp; j1 &lt;= n &amp;&amp; j2 &gt;= 1 &amp;&amp; j2 &lt;= n)</span><br><span class="line">            &#123;</span><br><span class="line">                // 提前算好增量，减少代码量</span><br><span class="line">                int t = w[i1][j1];                      // 相交时有w[i1][j1]==w[i2][j2]，只需记录一次</span><br><span class="line">                if (i1 != i2) t += w[i2][j2];           // 若不相交，则还要记录w[i2][j2]</span><br><span class="line"></span><br><span class="line">                int &amp;x = f[k][i1][i2];                  // 用x表示f[k][i1][i2]，减少代码长度</span><br><span class="line">                x = max(x, f[k - 1][i1 - 1][i2 - 1] + t);       // 第1条路径来自上边，第2条路径来自上边</span><br><span class="line">                x = max(x, f[k - 1][i1 - 1][i2] + t);           // 第1条路径来自上边，第2条路径来自左边</span><br><span class="line">                x = max(x, f[k - 1][i1][i2 - 1] + t);           // 第1条路径来自左边，第2条路径来自上边</span><br><span class="line">                x = max(x, f[k - 1][i1][i2] + t);               // 第1条路径来自左边，第2条路径来自左边</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">printf(&quot;%d\n&quot;, f[n + n][n][n]);</span><br></pre></td></tr></table></figure>
+
+<p><strong>说明</strong></p>
+<ul>
+<li>由于是<strong>最大</strong>路径，且格子上的数是非负数，故矩阵<code>f</code>可以使用默认值<code>0</code>初始化</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">展欧</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://github-zhangzhenxi.github.io.git/2022/10/03/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%EF%BC%88%E6%95%B0%E5%AD%97%E4%B8%89%E8%A7%92%E5%BD%A2%E6%A8%A1%E5%9E%8B%EF%BC%89/">http://github-zhangzhenxi.github.io.git/2022/10/03/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%EF%BC%88%E6%95%B0%E5%AD%97%E4%B8%89%E8%A7%92%E5%BD%A2%E6%A8%A1%E5%9E%8B%EF%BC%89/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://github-zhangzhenxi.github.io.git" target="_blank">展欧的空间</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AE%97%E6%B3%95/">算法</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/%E6%94%AF%E4%BB%98%E5%AE%9D.jpg" target="_blank"><img class="post-qr-code-img" src="/img/%E6%94%AF%E4%BB%98%E5%AE%9D.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/10/03/%E5%89%8D%E7%BC%80%E5%92%8C%E3%80%81%E5%B7%AE%E5%88%86/"><img class="prev-cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">前缀和、差分</div></div></a></div><div class="next-post pull-right"><a href="/2022/10/03/%E5%A4%87%E6%88%98%E8%93%9D%E6%A1%A5%E6%9D%AF%E4%B9%8B%E6%AF%8F%E5%A4%A9%E8%8E%B7%E5%BE%97%E7%9A%84%E7%9F%A5%E8%AF%86/"><img class="next-cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">备战蓝桥杯</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/10/03/BFS%E5%92%8CDFS/" title="BFS(广度优先搜索)和DFS(深度优先搜索)"><img class="cover" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg2.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-03</div><div class="title">BFS(广度优先搜索)和DFS(深度优先搜索)</div></div></a></div><div><a href="/2022/10/03/KMP%EF%BC%88%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%EF%BC%89/" title="KMP"><img class="cover" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg2.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-03</div><div class="title">KMP</div></div></a></div><div><a href="/2022/10/03/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%EF%BC%88%E6%95%B0%E5%80%BC%E6%9F%A5%E6%89%BE%EF%BC%89/" title="二分查找"><img class="cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-03</div><div class="title">二分查找</div></div></a></div><div><a href="/2022/10/04/%E4%BA%8C%E5%88%86%E7%AE%97%E6%B3%95/" title="二分的思想"><img class="cover" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-04</div><div class="title">二分的思想</div></div></a></div><div><a href="/2022/10/03/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" title="动态规划"><img class="cover" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg2.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-03</div><div class="title">动态规划</div></div></a></div><div><a href="/2022/10/03/%E5%89%8D%E7%BC%80%E5%92%8C%E3%80%81%E5%B7%AE%E5%88%86/" title="前缀和、差分"><img class="cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-03</div><div class="title">前缀和、差分</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">展欧</div><div class="author-info__description">学如逆水行舟，心似平原野马</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">26</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/github-zhangzhenxi"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/github-zhangzhenxi" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:github-zhangzhenxi@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">一直在完善，从未停止更新！！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%AD%97%E4%B8%89%E8%A7%92%E5%BD%A2%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">数字三角形模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%91%98%E8%8A%B1%E7%94%9F"><span class="toc-number">1.1.</span> <span class="toc-text">摘花生</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E4%BD%8E%E9%80%9A%E8%A1%8C%E8%B4%B9"><span class="toc-number">1.2.</span> <span class="toc-text">最低通行费</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%A0%BC%E5%8F%96%E6%95%B0"><span class="toc-number">1.3.</span> <span class="toc-text">方格取数</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/10/04/C++%20%E5%AE%B9%E5%99%A8/" title="C++容器"><img src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C++容器"/></a><div class="content"><a class="title" href="/2022/10/04/C++%20%E5%AE%B9%E5%99%A8/" title="C++容器">C++容器</a><time datetime="2022-10-04T14:56:52.000Z" title="发表于 2022-10-04 22:56:52">2022-10-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/10/04/%E4%BA%8C%E5%88%86%E7%AE%97%E6%B3%95/" title="二分的思想"><img src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="二分的思想"/></a><div class="content"><a class="title" href="/2022/10/04/%E4%BA%8C%E5%88%86%E7%AE%97%E6%B3%95/" title="二分的思想">二分的思想</a><time datetime="2022-10-04T14:56:52.000Z" title="发表于 2022-10-04 22:56:52">2022-10-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/10/04/%E6%95%B0%E8%AE%BA/" title="数论"><img src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数论"/></a><div class="content"><a class="title" href="/2022/10/04/%E6%95%B0%E8%AE%BA/" title="数论">数论</a><time datetime="2022-10-04T14:56:52.000Z" title="发表于 2022-10-04 22:56:52">2022-10-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/10/03/BFS%E5%92%8CDFS/" title="BFS(广度优先搜索)和DFS(深度优先搜索)"><img src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="BFS(广度优先搜索)和DFS(深度优先搜索)"/></a><div class="content"><a class="title" href="/2022/10/03/BFS%E5%92%8CDFS/" title="BFS(广度优先搜索)和DFS(深度优先搜索)">BFS(广度优先搜索)和DFS(深度优先搜索)</a><time datetime="2022-10-03T12:40:52.000Z" title="发表于 2022-10-03 20:40:52">2022-10-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/10/03/C++%20,%20string%20%E5%A4%B4%E6%96%87%E4%BB%B6/" title="c++ String 用法详解 （全面解析）"><img src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="c++ String 用法详解 （全面解析）"/></a><div class="content"><a class="title" href="/2022/10/03/C++%20,%20string%20%E5%A4%B4%E6%96%87%E4%BB%B6/" title="c++ String 用法详解 （全面解析）">c++ String 用法详解 （全面解析）</a><time datetime="2022-10-03T12:40:52.000Z" title="发表于 2022-10-03 20:40:52">2022-10-03</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By 展欧</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="false" data-text="天行健，君子以自强不息,If i want，then i do,劳其筋骨，饿其体肤，空乏其身,人之幼稚,不学则愚。,把握机遇,心想事成。,业精于勤,荒于嬉;行成于思,毁于随,安不忘危，盛必虑衰,谋事在人，成事在天,天大寒，砚冰坚，手指不可屈伸，弗之怠。,既加冠，益慕圣贤之道 ，又患无硕师、名人与游，尝趋百里外，从乡之先达执经叩问" data-fontsize="15px" data-random="false" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>输入与输出 | 展欧的空间</title><meta name="keywords" content="C/C++"><meta name="author" content="展欧"><meta name="copyright" content="展欧"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="cin   1. cin&gt;&gt;n返回的也是一个cin对象，当一个cin对象作为条件选择、循环等的控制表达式时，编译器会将其转换为真值表达式，如果cin的iostate为goodbit，则这个真值表达式的结果为真，否则为假。（while(cin &gt;&gt; a &gt;&gt; b)）  cout   scanf()： 1. scanf(&quot;格式符&quot;，变量名地址)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="输入与输出">
+<meta property="og:url" content="http://github-zhangzhenxi.github.io.git/2022/10/03/%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/index.html">
+<meta property="og:site_name" content="展欧的空间">
+<meta property="og:description" content="cin   1. cin&gt;&gt;n返回的也是一个cin对象，当一个cin对象作为条件选择、循环等的控制表达式时，编译器会将其转换为真值表达式，如果cin的iostate为goodbit，则这个真值表达式的结果为真，否则为假。（while(cin &gt;&gt; a &gt;&gt; b)）  cout   scanf()： 1. scanf(&quot;格式符&quot;，变量名地址)">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg3.png">
+<meta property="article:published_time" content="2022-10-03T12:40:52.000Z">
+<meta property="article:modified_time" content="2022-10-05T07:50:25.578Z">
+<meta property="article:author" content="展欧">
+<meta property="article:tag" content="C&#x2F;C++">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg3.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://github-zhangzhenxi.github.io.git/2022/10/03/%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '输入与输出',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-10-05 15:50:25'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="展欧的空间" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">26</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 链接</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg3.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">展欧的空间</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 链接</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">输入与输出</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-10-03T12:40:52.000Z" title="发表于 2022-10-03 20:40:52">2022-10-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-10-05T07:50:25.578Z" title="更新于 2022-10-05 15:50:25">2022-10-05</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="输入与输出"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>cin  </p>
+<pre><code>1. cin&gt;&gt;n返回的也是一个cin对象，当一个cin对象作为条件选择、循环等的控制表达式时，编译器会将其转换为真值表达式，如果cin的iostate为goodbit，则这个真值表达式的结果为真，否则为假。（while(cin &gt;&gt; a &gt;&gt; b)）
+</code></pre>
+<p>cout </p>
+<hr>
+<p>scanf()：</p>
+<pre><code>1. scanf(&quot;格式符&quot;，变量名地址) 返回的是接收值的个数		
+2. scanf中字符串只接收符合格式的值，当遇到第一个不符合的值时，接收停止，并将没有接受的放入输入缓冲（但是%c是可以接收换行符和空格的）
+3. scanf遇到 Tab、空格、换行，之后停止接收
+          
+</code></pre>
+<p>printf()</p>
+<hr>
+<p>sprintf函数</p>
+<pre><code>　　sprintf函数原型为 int sprintf(char *str, const char *format, ...)。作用是格式化字符串，具体功能如下所示：
+</code></pre>
+<p>（1）将数字变量转换为字符串。</p>
+<p>（2）得到整型变量的16进制和8进制字符串。</p>
+<p>（3）连接多个字符串。</p>
+<p>举例如下所示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">1     char str[256] = &#123; 0 &#125;; </span><br><span class="line">2     int data = 1024;</span><br><span class="line"></span><br><span class="line">3     //将data转换为字符串</span><br><span class="line">4     sprintf(str,&quot;%d&quot;,data);</span><br><span class="line"></span><br><span class="line">5     //获取data的十六进制</span><br><span class="line">6     sprintf(str,&quot;0x%X&quot;,data);</span><br><span class="line"></span><br><span class="line">7     //获取data的八进制</span><br><span class="line">8     sprintf(str,&quot;0%o&quot;,data);</span><br><span class="line"></span><br><span class="line">9     const char *s1 = &quot;Hello&quot;; </span><br><span class="line">10     const char *s2 = &quot;World&quot;; </span><br><span class="line">11     //连接字符串s1和s2</span><br><span class="line">12     sprintf(str,&quot;%s %s&quot;,s1,s2);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>sscanf函数</p>
+<p>　   sscanf函数原型为int sscanf(const char *str, const char *format, …)。将参数str的字符串根据参数format字符串来转换并格式化数据，转换后的结果存于对应的参数内。具体功能如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">（1）根据格式从字符串中提取数据。如从字符串中取出整数、浮点数和字符串等。</span><br><span class="line"></span><br><span class="line">（2）取指定长度的字符串</span><br><span class="line"></span><br><span class="line">（3）取到指定字符为止的字符串</span><br><span class="line"></span><br><span class="line">（4）取仅包含指定字符集的字符串</span><br><span class="line"></span><br><span class="line">（5）取到指定字符集为止的字符串</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sscanf可以支持格式字符%[]：</span><br><span class="line"></span><br><span class="line">(1)-: 表示范围，如：%[1-9]表示只读取1-9这几个数字 %[a-z]表示只读取a-z小写字母，类似地 %[A-Z]只读取大写字母  </span><br><span class="line"></span><br><span class="line">(2)^: 表示不取，如：%[^1]表示读取除&#x27;1&#x27;以外的所有字符 %[^/]表示除/以外的所有字符  </span><br><span class="line"></span><br><span class="line">(3),: 范围可以用&quot;,&quot;相连接 如%[1-9,a-z]表示同时取1-9数字和a-z小写字母   </span><br><span class="line"></span><br><span class="line">(4)原则：从第一个在指定范围内的数字开始读取，到第一个不在范围内的数字结束%s 可以看成%[] 的一个特例 %[^ ](注意^后面有一个空格！)</span><br><span class="line"></span><br><span class="line">解析网址的例子如下所示：</span><br><span class="line"></span><br><span class="line"> 1     const char *s = &quot;http://www.baidu.com:1234&quot;;</span><br><span class="line"> </span><br><span class="line"> 2     char protocol[32] = &#123; 0 &#125;; </span><br><span class="line"> 3     char host[128] = &#123; 0 &#125;; </span><br><span class="line"> 4     char port[8] = &#123; 0 &#125;; </span><br><span class="line"> 5     sscanf(s,&quot;%[^:]://%[^:]:%[1-9]&quot;,protocol,host,port);</span><br><span class="line"> </span><br><span class="line"> 6 </span><br><span class="line"> 7     printf(&quot;protocol: %s\n&quot;,protocol);</span><br><span class="line"> 8     printf(&quot;host: %s\n&quot;,host);</span><br><span class="line"> 9     printf(&quot;port: %s\n&quot;,port); 10    </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<hr>
+<p>gets()：</p>
+<pre><code>1. 接收字符串，不接收回车符（遇到回车符就停止）
+2. c = getchar()   
+</code></pre>
+<p>puts()</p>
+<hr>
+<p>getchar()：</p>
+<pre><code>1. 接收字符
+</code></pre>
+<p>putchar()</p>
+<pre><code>1. 输出一个字符
+</code></pre>
+<hr>
+<p>getline(cin, 变量名)</p>
+<pre><code>1. 对于字符数组buf[255]：  cin.getline(buf, 255);
+2. 对于String变量buf：getline(cin , buf);
+</code></pre>
+<h2 id="输入的应用（需整理）"><a href="#输入的应用（需整理）" class="headerlink" title="输入的应用（需整理）"></a>输入的应用（需整理）</h2><p>char a[1000];<br>int i &#x3D; 1;<br>    while(cin &gt;&gt; a[i ++]);    &#x2F;&#x2F; 这样可以把数字输入成字符</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">展欧</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://github-zhangzhenxi.github.io.git/2022/10/03/%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/">http://github-zhangzhenxi.github.io.git/2022/10/03/%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://github-zhangzhenxi.github.io.git" target="_blank">展欧的空间</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/C-C/">C/C++</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg3.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/%E6%94%AF%E4%BB%98%E5%AE%9D.jpg" target="_blank"><img class="post-qr-code-img" src="/img/%E6%94%AF%E4%BB%98%E5%AE%9D.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/10/03/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/"><img class="prev-cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">快速排序</div></div></a></div><div class="next-post pull-right"><a href="/2022/10/03/%E8%AE%A1%E6%95%B0%E3%80%81%E6%A1%B6%E6%8E%92%E5%BA%8F%E4%BB%A5%E5%8F%8A%E5%90%84%E7%A7%8D%E6%8E%92%E5%BA%8F%E7%9A%84%E6%AF%94%E8%BE%83/"><img class="next-cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">计数、桶排序以及各种排序的比较</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/10/03/C++%20,%20string%20%E5%A4%B4%E6%96%87%E4%BB%B6/" title="c++ String 用法详解 （全面解析）"><img class="cover" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg2.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-03</div><div class="title">c++ String 用法详解 （全面解析）</div></div></a></div><div><a href="/2022/10/04/C++%20%E5%AE%B9%E5%99%A8/" title="C++容器"><img class="cover" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-04</div><div class="title">C++容器</div></div></a></div><div><a href="/2022/10/03/String.h%20%E5%A4%B4%E6%96%87%E4%BB%B6/" title="String.h头文件（零碎）"><img class="cover" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg3.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-03</div><div class="title">String.h头文件（零碎）</div></div></a></div><div><a href="/2022/10/03/%E4%BD%8D%E8%BF%90%E7%AE%97%E5%8F%8A%E6%A0%87%E5%87%86%E6%A8%A1%E7%89%88%E5%BA%93/" title="位运算及标准模版库"><img class="cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-03</div><div class="title">位运算及标准模版库</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">展欧</div><div class="author-info__description">学如逆水行舟，心似平原野马</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">26</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/github-zhangzhenxi"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/github-zhangzhenxi" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:github-zhangzhenxi@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">一直在完善，从未停止更新！！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E7%9A%84%E5%BA%94%E7%94%A8%EF%BC%88%E9%9C%80%E6%95%B4%E7%90%86%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">输入的应用（需整理）</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/10/04/C++%20%E5%AE%B9%E5%99%A8/" title="C++容器"><img src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C++容器"/></a><div class="content"><a class="title" href="/2022/10/04/C++%20%E5%AE%B9%E5%99%A8/" title="C++容器">C++容器</a><time datetime="2022-10-04T14:56:52.000Z" title="发表于 2022-10-04 22:56:52">2022-10-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/10/04/%E4%BA%8C%E5%88%86%E7%AE%97%E6%B3%95/" title="二分的思想"><img src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="二分的思想"/></a><div class="content"><a class="title" href="/2022/10/04/%E4%BA%8C%E5%88%86%E7%AE%97%E6%B3%95/" title="二分的思想">二分的思想</a><time datetime="2022-10-04T14:56:52.000Z" title="发表于 2022-10-04 22:56:52">2022-10-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/10/04/%E6%95%B0%E8%AE%BA/" title="数论"><img src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数论"/></a><div class="content"><a class="title" href="/2022/10/04/%E6%95%B0%E8%AE%BA/" title="数论">数论</a><time datetime="2022-10-04T14:56:52.000Z" title="发表于 2022-10-04 22:56:52">2022-10-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/10/03/BFS%E5%92%8CDFS/" title="BFS(广度优先搜索)和DFS(深度优先搜索)"><img src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="BFS(广度优先搜索)和DFS(深度优先搜索)"/></a><div class="content"><a class="title" href="/2022/10/03/BFS%E5%92%8CDFS/" title="BFS(广度优先搜索)和DFS(深度优先搜索)">BFS(广度优先搜索)和DFS(深度优先搜索)</a><time datetime="2022-10-03T12:40:52.000Z" title="发表于 2022-10-03 20:40:52">2022-10-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/10/03/C++%20,%20string%20%E5%A4%B4%E6%96%87%E4%BB%B6/" title="c++ String 用法详解 （全面解析）"><img src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="c++ String 用法详解 （全面解析）"/></a><div class="content"><a class="title" href="/2022/10/03/C++%20,%20string%20%E5%A4%B4%E6%96%87%E4%BB%B6/" title="c++ String 用法详解 （全面解析）">c++ String 用法详解 （全面解析）</a><time datetime="2022-10-03T12:40:52.000Z" title="发表于 2022-10-03 20:40:52">2022-10-03</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By 展欧</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="false" data-text="天行健，君子以自强不息,If i want，then i do,劳其筋骨，饿其体肤，空乏其身,人之幼稚,不学则愚。,把握机遇,心想事成。,业精于勤,荒于嬉;行成于思,毁于随,安不忘危，盛必虑衰,谋事在人，成事在天,天大寒，砚冰坚，手指不可屈伸，弗之怠。,既加冠，益慕圣贤之道 ，又患无硕师、名人与游，尝趋百里外，从乡之先达执经叩问" data-fontsize="15px" data-random="false" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
